@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "framecheck-local"
-version = "0.3.1"
+version = "0.3.2"
 description = "Reproducible semantic regression checks for streaming protocol parsers"
 requires-python = ">=3.10"
 license = {text = "MIT"}

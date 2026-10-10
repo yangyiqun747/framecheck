@@ -36,7 +36,8 @@ class BuildValidationTests(unittest.TestCase):
 class CAdapterTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.directory = tempfile.TemporaryDirectory(prefix="framecheck-c-")
+        cls.directory = tempfile.TemporaryDirectory(
+            prefix="framecheck-c-", ignore_cleanup_errors=(os.name == "nt"))
         cls.library = build_library(SOURCE, Path(cls.directory.name), compiler=COMPILER)
         cls.parser = load_c_parser(cls.library)
 
@@ -44,10 +45,7 @@ class CAdapterTests(unittest.TestCase):
     def tearDownClass(cls):
         # Windows keeps the loaded DLL locked until process exit. Leave that
         # temporary directory for the OS cleanup if it cannot be removed.
-        try:
-            cls.directory.cleanup()
-        except PermissionError:
-            pass
+        cls.directory.cleanup()
 
     def setUp(self):
         self.parser.reset()

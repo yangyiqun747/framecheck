@@ -117,6 +117,11 @@ def demo(args):
 
 
 def main(argv=None):
+    # Preserve the chosen console encoding; escape unsupported characters instead
+    # of turning a successful run into an encoding error on redirected Windows I/O.
+    for stream in (sys.stdout, sys.stderr):
+        if callable(getattr(stream, "reconfigure", None)):
+            stream.reconfigure(errors="backslashreplace")
     parser = argparse.ArgumentParser(prog="framecheck", description="流式通信协议解析器回归验收")
     parser.add_argument("--version", action="version", version=__version__)
     commands = parser.add_subparsers(dest="command", required=True)
