@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "scope": "Toy binary exchange example only; not hardware defaults",
+  "serial": {
+    "baudrate": 57600,
+    "bytesize": 8,
+    "parity": "N",
+    "stopbits": 1,
+    "xonxoff": false,
+    "rtscts": false,
+    "dsrdtr": false
+  },
+  "ready_banner_hex": "",
+  "ready_policy": "skip",
+  "ready_timeout_s": 1,
+  "response_timeout_s": 1,
+  "quiet_s": 0.05,
+  "write_timeout_s": 1,
+  "inter_chunk_s": 0.01
+}

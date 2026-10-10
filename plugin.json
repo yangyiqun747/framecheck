@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "framecheck",
+  "version": "0.3.1",
+  "description": "Guided project discovery and reproducible regression checks for embedded streaming protocol parsers.",
+  "license": "MIT",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "FrameCheck 解析器验收",
+        "shortDescription": "从项目代码定位解析器，引导补齐协议规则，生成回归报告和失败用例。",
+        "longDescription": "指定项目后，引导查找解析函数、帧结构与校验代码，只确认缺失的协议规则，再生成适配器与测试。支持本地主机执行 C/Python 解析器、中文交互报告和失败重放。",
+        "developerName": "FrameCheck contributors",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "brandColor": "#71DDB0",
+        "defaultPrompt": ["用 FrameCheck 检查当前项目的串口解析器，先找代码，再引导我补齐必要信息。", "我不知道该提供哪些代码，请用 FrameCheck 带我一步步检查解析器。", "用 FrameCheck 演示解析器回归测试。"]
+      }
+    }
+  }
+}

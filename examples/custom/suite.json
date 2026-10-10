@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "name": "自定义逐行协议示例",
+  "protocol": {"name": "ASCII line", "rule": "LF ends a message; keep incomplete lines"},
+  "cases": [
+    {"id": "line-split", "title": "自定义字段也能验收", "category": "fragment", "chunks_hex": ["4845", "4c4c4f0a"], "expected": [{"line": "HELLO"}]},
+    {"id": "two-lines", "title": "两行连续输入", "category": "concat", "chunks_hex": ["410a420a"], "expected": [{"line": "A"}, {"line": "B"}]},
+    {"id": "incomplete", "title": "未遇换行不得输出", "category": "boundary", "chunks_hex": ["4142"], "expected": []}
+  ]
+}

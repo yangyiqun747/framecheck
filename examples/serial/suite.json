@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "scope": "Toy responses for offline runner self-check, not a protocol specification",
+  "cases": [
+    {
+      "id": "binary-response",
+      "transactions": [
+        {
+          "chunks_hex": [
+            "a501",
+            "02"
+          ],
+          "expected_hex": "5a0102"
+        }
+      ]
+    },
+    {
+      "id": "explicit-silence-then-response",
+      "transactions": [
+        {
+          "chunks_hex": [
+            "ffff"
+          ],
+          "expected_hex": "",
+          "expect_silence_s": 0.05
+        },
+        {
+          "chunks_hex": [
+            "a50203"
+          ],
+          "expected_hex": "5a0203"
+        }
+      ]
+    }
+  ]
+}

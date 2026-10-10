@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "framecheck-local"
+version = "0.3.1"
+description = "Reproducible semantic regression checks for streaming protocol parsers"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.optional-dependencies]
+serial = ["pyserial>=3.5,<4"]
+board = ["pyocd>=0.45.1,<0.46", "pyserial>=3.5,<4"]
+
+[project.scripts]
+framecheck = "framecheck.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["framecheck*"]

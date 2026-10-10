@@ -1,0 +1,7 @@
+interface:
+  display_name: "FrameCheck 解析器验收"
+  short_description: "从项目中查找协议解析器，引导确认缺失规则，准备测试并保存可重放的失败输入。"
+  brand_color: "#71DDB0"
+  default_prompt: "用 $framecheck 检查当前项目的协议解析器，先查找相关代码，再引导我补齐必要信息并运行测试。"
+policy:
+  allow_implicit_invocation: true

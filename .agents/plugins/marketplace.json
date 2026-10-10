@@ -1,0 +1,12 @@
+{
+  "name": "framecheck-local",
+  "interface": {"displayName": "FrameCheck 本地开发"},
+  "plugins": [
+    {
+      "name": "framecheck",
+      "source": {"source": "local", "path": "./"},
+      "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+      "category": "Productivity"
+    }
+  ]
+}

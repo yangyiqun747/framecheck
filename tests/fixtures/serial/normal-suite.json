@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "scope": "Three normal one-request/one-response cases; no concatenated-message stress, malformed ending or overlength assumptions",
+  "cases": [
+    {"id": "complete-message", "name": "完整 ABC CRLF 原样回包", "transactions": [{"chunks_hex": ["4142430d0a"], "expected_hex": "4142430d0a"}]},
+    {"id": "split-message", "name": "ABC 分段输入后回包", "transactions": [{"chunks_hex": ["41", "4243", "0d", "0a"], "expected_hex": "4142430d0a"}]},
+    {"id": "consume-then-next", "name": "收到第一条回包后再发第二条", "transactions": [{"chunks_hex": ["4142430d0a"], "expected_hex": "4142430d0a"}, {"chunks_hex": ["58595a0d0a"], "expected_hex": "58595a0d0a"}]}
+  ]
+}

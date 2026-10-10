@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "scope": "Unit-test profile, not a board default",
+  "serial": {
+    "baudrate": 115200,
+    "bytesize": 8,
+    "parity": "N",
+    "stopbits": 1,
+    "xonxoff": false,
+    "rtscts": false,
+    "dsrdtr": false
+  },
+  "ready_banner_hex": "54455354205245414459",
+  "ready_policy": "required",
+  "ready_timeout_s": 30,
+  "response_timeout_s": 2,
+  "quiet_s": 0.1,
+  "write_timeout_s": 1,
+  "inter_chunk_s": 0.02,
+  "ready_prompt": "Waiting for a test readiness marker."
+}

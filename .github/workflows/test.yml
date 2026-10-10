@@ -1,0 +1,33 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    timeout-minutes: 10
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Unit and integration tests
+        run: python -m unittest discover -s tests -v
+      - name: Python demonstration
+        run: python -m framecheck demo --out ./demo-output
+      - name: Native C demonstration
+        if: runner.os == 'Linux'
+        run: python -m framecheck demo --native --out ./native-demo
+      - name: Serial offline self-check
+        run: python -m framecheck serial-run --dry-run --profile examples/serial/profile.json --suite examples/serial/suite.json --out ./serial-self-check

@@ -1,0 +1,12 @@
+{
+  "name": "framecheck",
+  "version": "0.3.1",
+  "description": "Guided embedded parser discovery, regression checks and exact failing input replay.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "FrameCheck 解析器验收",
+    "shortDescription": "从项目定位解析器，引导确认规则并保存回归测试证据。",
+    "developerName": "FrameCheck contributors",
+    "category": "Productivity"
+  }
+}
