@@ -189,8 +189,12 @@ void unrelated() { HAL_UART_Init(huart); }
         self.assertIn("![example](https://example.com/image.png)", markdown)
 
     def test_existing_linked_report_file_is_rejected_without_overwrite(self):
+        # Exercise equivalent lexical/canonical paths (also seen with Windows 8.3 names).
+        alias = self.base / "path-alias"
+        alias.mkdir()
+        self.output = alias / ".." / self.output.name
         self.output.mkdir()
-        target = self.output / "intake.md"
+        target = self.output.resolve() / "intake.md"
         target.write_text("keep original", encoding="utf-8")
         original_is_link = _is_link
         with patch("framecheck.inspect_project._is_link", side_effect=lambda path:
