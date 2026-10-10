@@ -89,6 +89,8 @@ class ReportTests(unittest.TestCase):
             "title": hostile, "reason": hostile, "chunks_hex": [hostile],
             "expected": [{hostile: hostile}], "actual": [{"message": hostile}],
             "repro_file": "javascript:alert(1)",
+            "feedback": {"observation": hostile, "next_steps": [hostile], "limit": hostile,
+                         "evidence": {"field_path": [hostile], "actual_preview": hostile}},
         })
         with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary)
@@ -107,6 +109,8 @@ class ReportTests(unittest.TestCase):
             self.assertNotIn("insertAdjacentHTML", html)
             self.assertIn("el.textContent = display(text)", html)
             self.assertIn('connect-src \'none\'', html)
+            self.assertIn('node("p", "", feedback.observation)', html)
+            self.assertIn('node("li", "", step)', html)
 
     def test_empty_report_and_each_status_are_valid_standalone_documents(self):
         for statuses in [(), ("pass",), ("fail",), ("error",)]:

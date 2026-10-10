@@ -1,6 +1,6 @@
 {
   "name": "framecheck",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Guided embedded parser discovery, regression checks and exact failing input replay.",
   "skills": "./skills/",
   "interface": {
